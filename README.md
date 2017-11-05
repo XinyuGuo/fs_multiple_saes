@@ -1,4 +1,4 @@
-Project: Feature Selection based on Multiple Sparse Autoencoders (SAEs)
+# Project: Feature Selection based on Multiple Sparse Autoencoders (SAEs)
 
 In this project, a novel feature selection method based on multiple SAEs was designed to consturct 
 a new SAE feature layer which can generate high-quality data representations, thus can ehance the 
@@ -18,8 +18,8 @@ Three important foundings can be drawn from the resutls:
 
 More details and results of the method was described in the conferecne paper:
 
-Guo, Xinyu, Ali A. Minai, and Long J. Lu. "Feature selection using multiple auto-encoders." 
+**Guo, Xinyu, Ali A. Minai, and Long J. Lu. "Feature selection using multiple auto-encoders." 
 In Neural Networks (IJCNN), 2017 International Joint Conference on, pp. 4602-4609. IEEE, 2017.
-(http://ieeexplore.ieee.org/abstract/document/7966440/)
+(http://ieeexplore.ieee.org/abstract/document/7966440/)**
 
 It's also a part of my Ph.D disertation.
