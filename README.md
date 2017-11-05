@@ -11,7 +11,9 @@ image dataset (https://www.cs.toronto.edu/~kriz/cifar.html) was applied, respect
 Three important foundings can be drawn from the resutls:
 
 (1). The proposed feature selection method can improve the classification performance in both tasks. 
+
 (2). The diversity of the selected feature pool is highly correlated with the classification model performance.
+
 (3). pinched-SAEs can produce more diverse features thus the classification accuracy can be improved.
 
 More details and results of the method was described in the conferecne paper:
