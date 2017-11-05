@@ -1,0 +1,10 @@
+mnist/
+minFunc/
+*.swp
+/aec_analysis/results/
+/aec_analysis/aeccost_1000/
+/aec_analysis/aeccost_3000/
+/aec_analysis/aeccost_5000/
+/aec_analysis/aeccost_7000/
+/aec_analysis/aeccost_9000/
+/autosoft_cifar/cifar-10-batches-mat/
