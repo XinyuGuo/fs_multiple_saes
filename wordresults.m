@@ -1,8 +1,11 @@
-function wordresults()
-    load('data25.mat','data25');
+function [a_3]= wordresults()
+    %load('data25.mat','data25');
     load('theta_word_25.mat','theta_word');
+    data25 = importdata('textdata/doc_topic_prob_NEW_sports_25.txt'); 
+    data25 = data25';
+    size(data25)
     visibleSize = 25;
-    hiddenSize = 125;
+    hiddenSize = 10;
     W1 = reshape(theta_word(1:hiddenSize*visibleSize), hiddenSize, visibleSize);
     W2 = reshape(theta_word(hiddenSize*visibleSize+1:2*hiddenSize*visibleSize), visibleSize, hiddenSize);
     b1 = theta_word(2*hiddenSize*visibleSize+1:2*hiddenSize*visibleSize+hiddenSize);
@@ -19,6 +22,7 @@ function wordresults()
     size(singleSquareError)
     %singleSquareError
     [B,I]= sort(singleSquareError);
+    reconstruction_err = sum(singleSquareError)/m 
     word_results = [I',B'];
     save('wordresults_25.mat','word_results');
 end

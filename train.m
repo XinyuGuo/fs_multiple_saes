@@ -15,12 +15,15 @@
 %  change the parameters below.
 function [opttheta]= train(time,trainingset)
 visibleSize = 25;%28*28;   % number of input units 
-hiddenSize = 125;     % number of hidden units 
+hiddenSize = 10;     % number of hidden units 
 sparsityParam = 0.01;   % desired average activation of the hidden units.
+%0.01
                      % (This was denoted by the Greek alphabet rho, which looks like a lower-case "p",
 		             %  in the lecture notes). 
 lambda = 0.0001;     % weight decay parameter       
-beta = 3;            % weight of sparsity penalty term       
+%0.0001
+beta = 0;            % weight of sparsity penalty term       
+%3
 
 %%======================================================================
 %% STEP 1: Construct the training dataset
@@ -110,7 +113,7 @@ options.Method = 'lbfgs'; % Here, we use L-BFGS to optimize our cost
                           % need a function pointer with two outputs: the
                           % function value and the gradient. In our problem,
                           % sparseAutoencoderCost.m satisfies this.
-options.maxIter = 400;%60;	  % Maximum number of iterations of L-BFGS to run 
+options.maxIter = 600;%60;	  % Maximum number of iterations of L-BFGS to run 
 options.display = 'on';
 
 %log = 'logfile';

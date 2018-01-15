@@ -8,3 +8,5 @@ minFunc/
 /aec_analysis/aeccost_7000/
 /aec_analysis/aeccost_9000/
 /autosoft_cifar/cifar-10-batches-mat/
+/word2data/300/decay_0.0001/Corel_300_rec.mat
+/word2data/300/decay_0.01/Corel_300_rec.mat
