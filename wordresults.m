@@ -15,6 +15,7 @@ function [a_3]= wordresults()
     m = number(2); % m = 10000
     Z2 = W1*data25+repmat(b1,1,m); % should be marked when checking
     a_2 = sigmoid(Z2);
+    %size(a_2)
     Z3 = W2*a_2+repmat(b2,1,m); % W2(64*25)
     a_3 = sigmoid(Z3);
     squareError = (a_3-data25).^2;
@@ -25,8 +26,34 @@ function [a_3]= wordresults()
     reconstruction_err = sum(singleSquareError)/m 
     word_results = [I',B'];
     save('wordresults_25.mat','word_results');
+
+    displaysim(a_2(:,I));
+    M = csvread('Sports_SAE/IndexData_10.csv',1,0);  
+    displaysim(a_2(:,M(:,1)));
+    A = sortsimilarity(a_2);
+    displaysim(A);
+    %displaysim(W1)
+    %displaysim(W2)
 end
 
 function sigm = sigmoid(x)  
     sigm = 1 ./ (1 + exp(-x));
+end
+
+function [A] = sortsimilarity(a2) % 10 * 2583
+   index = randi(size(a2,2)); 
+   activation = a2(:,index);
+   A = [activation];
+   a2(:,index) = [];
+   while size(a2,2)~=0
+       similarity = [];
+       for i = 1 : size(a2,2)
+           cosine = pdist([activation,a2(:,i)]','cosine');
+           similarity = [similarity,cosine];
+       end
+       [B,I] = sort(similarity,'descend');
+       activation = a2(:,I(1));
+       A = [A,activation];
+       a2(:,I(1)) = [];
+   end
 end

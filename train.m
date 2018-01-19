@@ -120,7 +120,7 @@ options.display = 'on';
 %extention ='.txt';
 %fileid = num2str(time);
 %logfile = strcat(strcat(log,fileid),extention);
-%options.logfile = logfile;
+options.logfile = 'logfile_10.txt';
 
 
 [opttheta, cost] = minFunc( @(p) sparseAutoencoderCost(p, ...

@@ -8,6 +8,6 @@ function trainword()
    a_3 = wordresults();
    %a_3
    max(max(a_3))
-   displaysim(a_3');
-   displaysim(data25');
+   %displaysim(a_3');
+   %displaysim(data25');
 end
