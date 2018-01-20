@@ -48,7 +48,7 @@ function [A] = sortsimilarity(a2) % 10 * 2583
    while size(a2,2)~=0
        similarity = [];
        for i = 1 : size(a2,2)
-           cosine = pdist([activation,a2(:,i)]','cosine');
+           cosine = pdist([activation,a2(:,i)]','euclidean');
            similarity = [similarity,cosine];
        end
        [B,I] = sort(similarity,'descend');
