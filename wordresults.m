@@ -26,14 +26,22 @@ function [a_3]= wordresults()
     reconstruction_err = sum(singleSquareError)/m 
     word_results = [I',B'];
     save('wordresults_25.mat','word_results');
-
-    displaysim(a_2(:,I));
-    M = csvread('Sports_SAE/IndexData_10.csv',1,0);  
-    displaysim(a_2(:,M(:,1)));
-    A = sortsimilarity(a_2);
-    displaysim(A);
+    %displaysim(a_2(:,I));
+    %M = csvread('Sports_SAE/IndexData_10.csv',1,0);  
+    %displaysim(a_2(:,M(:,1)));
+    %A = sortsimilarity(a_2);
+    %displaysim(A);
     %displaysim(W1)
     %displaysim(W2)
+    Z = linkage(a_2','average','euclidean');
+    [O,P,Q] = dendrogram (Z);
+    idea_index = [1:m]';
+    index_cluster = [idea_index,P];
+    save('average_index_cluster.mat','index_cluster');
+    [Bb,Ii]= sort(P);  
+    agg_activation = a_2(:,Ii);
+    save('average.mat','agg_activation');
+    displaysim(a_2(:,Ii));
 end
 
 function sigm = sigmoid(x)  

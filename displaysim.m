@@ -14,4 +14,4 @@ function displaysim(simmatrix)
     colormap('hot');
     imagesc(simmatrix);
     colorbar;
-    caxis([0.0,0.9]);
+    caxis([0.0,1.0]);
