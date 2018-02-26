@@ -5,7 +5,7 @@ function [a_3]= wordresults()
     data25 = data25';
     size(data25)
     visibleSize = 25;
-    hiddenSize = 10;
+    hiddenSize = 100;
     W1 = reshape(theta_word(1:hiddenSize*visibleSize), hiddenSize, visibleSize);
     W2 = reshape(theta_word(hiddenSize*visibleSize+1:2*hiddenSize*visibleSize), visibleSize, hiddenSize);
     b1 = theta_word(2*hiddenSize*visibleSize+1:2*hiddenSize*visibleSize+hiddenSize);
@@ -19,13 +19,19 @@ function [a_3]= wordresults()
     Z3 = W2*a_2+repmat(b2,1,m); % W2(64*25)
     a_3 = sigmoid(Z3);
     squareError = (a_3-data25).^2;
-    singleSquareError = sum(squareError);
+    singleSquareError = sqrt(sum(squareError));
+    disp('here');
     size(singleSquareError)
+    Index = (1:2583); 
+    sqrerr = [Index;singleSquareError];
+    save('sqrerr.mat','sqrerr');
+
     %singleSquareError
-    [B,I]= sort(singleSquareError);
-    reconstruction_err = sum(singleSquareError)/m 
-    word_results = [I',B'];
-    save('wordresults_25.mat','word_results');
+    %[B,I]= sort(singleSquareError);
+    %reconstruction_err = sum(singleSquareError)/m 
+    %word_results = [I',B'];
+    %save('wordresults_25.mat','word_results');
+
     %displaysim(a_2(:,I));
     %M = csvread('Sports_SAE/IndexData_10.csv',1,0);  
     %displaysim(a_2(:,M(:,1)));
@@ -33,15 +39,16 @@ function [a_3]= wordresults()
     %displaysim(A);
     %displaysim(W1)
     %displaysim(W2)
-    Z = linkage(a_2','average','euclidean');
-    [O,P,Q] = dendrogram (Z);
-    idea_index = [1:m]';
-    index_cluster = [idea_index,P];
-    save('average_index_cluster.mat','index_cluster');
-    [Bb,Ii]= sort(P);  
-    agg_activation = a_2(:,Ii);
-    save('average.mat','agg_activation');
-    displaysim(a_2(:,Ii));
+
+    %Z = linkage(a_2','average','euclidean');
+    %[O,P,Q] = dendrogram (Z);
+    %idea_index = [1:m]';
+    %index_cluster = [idea_index,P]
+    %save('average_index_cluster.mat','index_cluster');
+    %[Bb,Ii]= sort(P);  
+    %agg_activation = a_2(:,Ii);
+    %save('average.mat','agg_activation');
+    %displaysim(a_2(:,Ii));
 end
 
 function sigm = sigmoid(x)  

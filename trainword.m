@@ -1,6 +1,7 @@
 function trainword()
    %data25 = importdata('textdata/doc_topic_prob_NEW_sports_25.txt'); 
-   data25 = importdata('textdata/doc_topic_prob_NEW_sports_25.txt'); 
+   %data25 = importdata('textdata/doc_topic_prob_NEW_sports_25.txt'); 
+   data25 = importdata('textdata/doc_topic_prob_Sports_Updated.txt'); 
 
    data25 = data25';
    %load('data25.mat','data25'); 

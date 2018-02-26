@@ -15,7 +15,7 @@
 %  change the parameters below.
 function [opttheta]= train(time,trainingset)
 visibleSize = 25;%28*28;   % number of input units 
-hiddenSize = 10;     % number of hidden units 
+hiddenSize = 100;     % number of hidden units 
 sparsityParam = 0.01;   % desired average activation of the hidden units.
 %0.01
                      % (This was denoted by the Greek alphabet rho, which looks like a lower-case "p",
