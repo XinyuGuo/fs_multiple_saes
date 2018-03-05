@@ -9,7 +9,7 @@ function [a_3]= wordresults()
     %size(data25)
     size(data500train)
     visibleSize = 500;
-    hiddenSize = 50;
+    hiddenSize = 25;
     W1 = reshape(theta_word(1:hiddenSize*visibleSize), hiddenSize, visibleSize);
     W2 = reshape(theta_word(hiddenSize*visibleSize+1:2*hiddenSize*visibleSize), visibleSize, hiddenSize);
     b1 = theta_word(2*hiddenSize*visibleSize+1:2*hiddenSize*visibleSize+hiddenSize);
