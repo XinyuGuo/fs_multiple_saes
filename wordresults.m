@@ -1,4 +1,5 @@
 function [a_3]= wordresults()
+    % git test
     %load('data25.mat','data25');
     load('theta_word_25.mat','theta_word');
     data500 = importdata('textdata/DocWord_sort_sports.txt'); 
